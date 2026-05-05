@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andrea Zúñiga | Senior Creative Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fbfaf8;
+      --ink: #4f4f52;
+      --dark: #2f2f32;
+      --muted: #747477;
+      --line: #ded8d1;
+      --pink: #ff9bc8;
+      --orange: #ff7800;
+      --yellow: #ffd800;
+      --blue: #1d7ff2;
+      --green: #21bf73;
+      --lavender: #b48cff;
+      --soft-pink: #ffe0ef;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.45;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      background: var(--bg);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .cover-band {
+      height: 260px;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      position: relative;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .cover-band::after {
+      content: "";
+      position: absolute;
+      left: -40px;
+      right: -40px;
+      bottom: -47px;
+      height: 92px;
+      background:
+        radial-gradient(circle at 8% 55%, var(--yellow) 0 16px, transparent 17px),
+        radial-gradient(circle at 17% 40%, var(--orange) 0 18px, transparent 19px),
+        radial-gradient(circle at 28% 52%, var(--blue) 0 15px, transparent 16px),
+        radial-gradient(circle at 39% 45%, var(--pink) 0 18px, transparent 19px),
+        radial-gradient(circle at 51% 58%, var(--green) 0 15px, transparent 16px),
+        radial-gradient(circle at 63% 44%, var(--yellow) 0 18px, transparent 19px),
+        radial-gradient(circle at 74% 56%, var(--blue) 0 16px, transparent 17px),
+        radial-gradient(circle at 86% 42%, var(--orange) 0 18px, transparent 19px),
+        radial-gradient(circle at 96% 58%, var(--pink) 0 15px, transparent 16px),
+        repeating-linear-gradient(105deg, transparent 0 36px, rgba(255,120,0,.9) 37px 48px, transparent 49px 70px),
+        repeating-linear-gradient(25deg, transparent 0 44px, rgba(29,127,242,.9) 45px 57px, transparent 58px 82px),
+        linear-gradient(180deg, transparent 0%, transparent 42%, rgba(255,155,200,.45) 43%, rgba(255,155,200,.45) 100%);
+      filter: saturate(1.15);
+    }
+
+    .brand-lockup {
+      text-align: center;
+      transform: translateY(8px);
+    }
+
+    h1 {
+      font-size: 74px;
+      line-height: .92;
+      letter-spacing: -0.075em;
+      font-weight: 900;
+      color: #5d5d60;
+    }
+
+    h1 span {
+      background: linear-gradient(115deg, #ff9bc8 0%, #ffb36d 38%, #ffa1d0 58%, #8279e8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .flower {
+      display: inline-block;
+      width: 27px;
+      height: 27px;
+      background: var(--lavender);
+      border-radius: 50%;
+      margin-left: 7px;
+      position: relative;
+      top: 4px;
+    }
+
+    .flower::before,
+    .flower::after {
+      content: "";
+      position: absolute;
+      inset: -6px;
+      background: var(--lavender);
+      border-radius: 50%;
+      z-index: -1;
+      transform: scaleX(.55);
+    }
+
+    .flower::after { transform: scaleY(.55); }
+
+    .subtitle {
+      font-size: 23px;
+      color: #67676b;
+      letter-spacing: .08em;
+      margin-top: 6px;
+    }
+
+    .name-small {
+      position: absolute;
+      bottom: 6px;
+      font-size: 12px;
+      letter-spacing: .06em;
+      color: #777;
+      z-index: 2;
+    }
+
+    .content {
+      padding: 80px 42px 36px;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1.4fr .9fr;
+      gap: 28px;
+      margin-bottom: 30px;
+    }
+
+    .intro-card,
+    .contact-card,
+    .side-card,
+    .job {
+      background: rgba(255,255,255,.72);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow: 0 14px 32px rgba(80,70,60,.06);
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--orange);
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .intro h2 {
+      font-size: 29px;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .summary {
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+
+    .summary strong { color: var(--dark); }
+
+    .contact-card p {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 9px;
+      word-break: break-word;
+    }
+
+    .contact-card strong {
+      display: block;
+      color: var(--dark);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 28px;
+    }
+
+    section { margin-bottom: 30px; }
+
+    .section-title {
+      font-size: 14px;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--dark);
+      font-weight: 900;
+      margin-bottom: 22px;
+      padding-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .dot {
+      margin-right: 28px;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--pink);
+      box-shadow: 12px 0 0 var(--yellow), 24px 0 0 var(--blue);
+      flex: 0 0 auto;
+    }
+
+    .side-card { padding: 18px; }
+
+    .side-item { margin-bottom: 14px; }
+
+    .side-item h3 {
+      font-size: 12.8px;
+      color: var(--dark);
+      line-height: 1.25;
+      margin-bottom: 3px;
+    }
+
+    .side-item p,
+    .skill-list li {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .skill-list li {
+      border-radius: 999px;
+      padding: 6px 9px;
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    .skill-list li:nth-child(4n+1) { border-color: rgba(255,155,200,.75); }
+    .skill-list li:nth-child(4n+2) { border-color: rgba(255,120,0,.65); }
+    .skill-list li:nth-child(4n+3) { border-color: rgba(29,127,242,.55); }
+    .skill-list li:nth-child(4n+4) { border-color: rgba(33,191,115,.55); }
+
+    .job {
+      display: grid;
+      grid-template-columns: 118px 1fr;
+      gap: 18px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .job::before {
+      content: "";
+      width: 8px;
+      height: 44px;
+      border-radius: 999px;
+      background: linear-gradient(var(--pink), var(--orange), var(--blue));
+      position: absolute;
+      left: -5px;
+      top: 24px;
+    }
+
+    .date {
+      font-size: 11.5px;
+      font-weight: 900;
+      color: var(--orange);
+    }
+
+    .job h3 {
+      font-size: 17px;
+      line-height: 1.08;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+    }
+
+    .title {
+      font-size: 12.7px;
+      font-weight: 800;
+      color: var(--muted);
+      margin: 3px 0 8px;
+    }
+
+    .job ul { padding-left: 16px; }
+
+    .job li {
+      font-size: 12.3px;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .job li strong { color: var(--dark); }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .pill {
+      font-size: 10.8px;
+      font-weight: 900;
+      border-radius: 999px;
+      padding: 5px 8px;
+      background: var(--soft-pink);
+      color: var(--dark);
+    }
+
+    .footer-note {
+      margin-top: 26px;
+      text-align: center;
+      color: #8a8580;
+      font-size: 11px;
+      letter-spacing: .08em;
+    }
+
+    @media print {
+      body { background: #fff; }
+      .page { width: 100%; margin: 0; }
+    }
+
+    @media (max-width: 760px) {
+      .page { width: 100%; }
+      .content { padding: 76px 22px 28px; }
+      .intro, .layout, .job { grid-template-columns: 1fr; }
+      h1 { font-size: 48px; }
+      .subtitle { font-size: 17px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="cover-band">
+      <div class="brand-lockup">
+        <h1>Curriculum <span> vitae </span> </h1>
+        <p class="subtitle">Andrea Zúñiga | Creative Designer | 2026</p>
+      </div>
+      
+    </header>
+
+    <div class="content">
+      <section class="intro">
+        <div class="intro-card">
+          <p class="eyebrow">Perfil profesional</p>
+          <h2>Diseño visual con enfoque estratégico</h2>
+          <p class="summary">
+            Soy diseñadora creativa, enfocada en comunicación visual, UX/UI y diseño de producto digital. <br>He trabajado en campañas, materiales comerciales, interfaces, flujos de usuario y experiencias para terminales de pago y productos digitales. Me gusta crear soluciones claras y funcionales, combinando estrategia, sensibilidad visual y una visión centrada en el usuario y el negocio.
+          </p>
+        </div>
+
+        <aside class="contact-card">
+          <p><strong>Email</strong> andreaazg@hotmail.com</p>
+          <p><strong>Teléfono</strong> +52 811 675 2192</p>
+          <p><strong>Ubicación</strong> Monterrey, México</p>
+         
+          <p><strong>LinkedIn</strong> www.linkedin.com/in/andreazgarcia</p>
+        </aside>
+      </section>
+
+      <div class="layout">
+        <aside>
+          <section class="side-card">
+            <h2 class="section-title"><span class="dot"></span>Educación</h2>
+            <div class="side-item">
+              <h3>Licenciatura en Diseño Gráfico</h3>
+              <p>Facultad de Artes Visuales UANL</p>
+              <p>2016 — 2020</p>
+            </div>
+          </section>
+
+          <section class="side-card">
+            <h2 class="section-title"><span class="dot"></span>Herramientas</h2>
+            <ul class="skill-list">
+              <li>Figma</li>
+              <li>Illustrator</li>
+              <li>Photoshop</li>
+              <li>After Effects</li>
+              <li>HTML / CSS</li>
+              <li>WordPress</li>
+              <li>Mailchimp</li>
+              
+            </ul>
+          </section>
+
+          <section class="side-card">
+            <h2 class="section-title"><span class="dot"></span>Skills</h2>
+            <ul class="skill-list">
+              <li>Creative Direction</li>
+              <li>UX/UI</li>
+              <li>Branding</li>
+              <li>Packaging</li>
+              <li>Motion</li>
+              <li>Email Marketing</li>
+              <li>Storytelling</li>
+              <li>Design Systems</li>
+            </ul>
+          </section>
+
+          <section class="side-card" style="padding:16px;">
+            <h2 class="section-title" style="font-size:12px; letter-spacing:.08em;"><span class="dot"></span>Certificaciones</h2>
+            <div class="side-item">
+              <h3 style="font-size:12px; line-height:1.35;">Fundamentos de UX & UI:<br>Diseño de interfaces</h3>
+              <p>Crehana · Mayo 2020</p>
+            </div>
+            <div class="side-item">
+              <h3>Diseño UX/UI</h3>
+              <p>Coderhouse · Abril 2021</p>
+            </div>
+          </section>
+        </aside>
+
+        <section style="padding-top: 8px;">
+          <h2 class="section-title"><span class="dot"></span>Experiencia</h2>
+
+          <article class="job">
+            <div class="date">2023 — Actualidad</div>
+            <div>
+              <h3>Spin / NetPay</h3>
+              <p class="title">Product Designer UX/UI + Creative Design</p>
+              <ul>
+                <li>Diseño de <strong>interfaces y experiencias UX/UI</strong> para terminales de pago, apps y plataformas digitales.</li>
+                <li>Desarrollo de flujos, prototipos y documentación para funcionalidades de producto, colaborando con producto, desarrollo, comercial y soporte.</li>
+                <li>Creación de <strong>componentes, patrones de interacción, animaciones Lottie</strong> y recursos visuales para mejorar la experiencia de uso.</li>
+                <li>Diseño de <strong>packaging, renders, newsletters, presentaciones y contenido audiovisual</strong> para campañas comerciales e internas.</li>
+              </ul>
+              <div class="pill-row">
+                <span class="pill">UX Strategy</span><span class="pill">Product Design</span><span class="pill">Packaging</span><span class="pill">B2B</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="date">2021 — 2023</div>
+            <div>
+              <h3>NetPay</h3>
+              <p class="title">Graphic Designer</p>
+              <ul>
+                <li>Diseño de materiales impresos y digitales: newsletters, flyers, empaques, manuales, presentaciones y materiales de soporte.</li>
+                <li>Producción audiovisual para podcasts, fotografía, video, retoque digital y motion graphics.</li>
+                <li>Apoyo en procesos de rebranding, asegurando coherencia visual en puntos de contacto con comercios y distribuidores.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="date">2019 — 2021</div>
+            <div>
+              <h3>Vanuva Agency</h3>
+              <p class="title">Graphic Designer</p>
+              <ul>
+                <li>Desarrollo de branding e identidad visual para proyectos corporativos y digitales.</li>
+                <li>Diseño editorial, web en WordPress, papelería corporativa, contenido para redes sociales y motion graphics.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="date">2017 — 2019</div>
+            <div>
+              <h3>Roxstar Soft</h3>
+              <p class="title">Graphic Designer</p>
+              <ul>
+                <li>Diseño de contenido digital para redes sociales, sitios web y eventos.</li>
+                <li>Producción audiovisual, fotografía, video, retoque digital y animaciones para campañas.</li>
+              </ul>
+            </div>
+          </article>
+        </section>
+      </div>
+
+      <section style="margin-top: 34px;">
+        <div style="text-align:center; margin-bottom:18px;">
+          <h2 style="font-size:58px; line-height:.92; letter-spacing:-0.07em; font-weight:900; color:#5d5d60; margin-bottom:8px;">
+            Portfolio <span style="background: linear-gradient(115deg, #ff9bc8 0%, #ffb36d 38%, #ffa1d0 58%, #8279e8 100%); -webkit-background-clip:text; background-clip:text; color:transparent;">Highlights</span>
+          </h2>
+          <p style="font-size:14px; color:var(--muted); letter-spacing:.04em;">Algunos de mis proyectos</p>
+        </div>
+
+        <div style="display:grid; gap:22px; margin-top:18px;">
+
+          <div style="background:#fff; border:1px solid var(--line); border-radius:30px; min-height:260px; padding:24px; display:flex; flex-direction:column; gap:20px; align-items:stretch;">
+            <div>
+              
+              <h3 style="font-size:24px; color:var(--dark); margin:8px 0;">NetPay</h3>
+              <p style="font-size:13px; color:var(--muted); line-height:1.6;">
+                Ecosistema de pagos que conecta terminales, servicios digitales y soluciones financieras para que los comercios puedan cobrar y operar sin fricción.
+              </p>
+            </div>
+<div style="
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+">
+  
+  <img 
+    src="images/5.jpg" 
+    alt="Proyecto 1"
+    style="
+      width:100%;
+      height:320px;
+      object-fit:cover;
+      border-radius:24px;
+      border:1px solid var(--line);
+      display:block;
+    "
+  />
+	
+	<img 
+    src="images/6.jpg"
+    alt="Proyecto 3"
+    style="
+      width:100%;
+      height:240px;
+      object-fit:cover;
+      border-radius:24px;
+      border:1px solid var(--line);
+      display:block;
+    "
+  />
+
+  <img 
+    src="images/4.jpg"
+    alt="Proyecto 2"
+    style="
+      width:100%;
+      height:450px;
+      object-fit:cover;
+      border-radius:24px;
+      border:1px solid var(--line);
+      display:block;
+    "
+  />
+
+  
+
+</div>
+          </div>
+
+          <div style="background:#fff; border:1px solid var(--line); border-radius:30px; min-height:260px; padding:24px; display:flex; flex-direction:column; gap:20px; align-items:stretch;">
+            <div>
+              
+              <h3 style="font-size:24px; color:var(--dark); margin:8px 0;">Spin Negocios</h3>
+              <p style="font-size:13px; color:var(--muted); line-height:1.6;">
+                La evolución de NetPay ahora bajo el ecosistema de Spin (FEMSA) dedicada a ofrecer soluciones de pago para comercios
+              </p>
+            </div>
+           <div style="
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+">
+  
+  <img 
+    src="images/8-1.gif"
+    alt="Render de packaging 1"
+    style="
+      width:100%;
+      height:450px;
+      object-fit:cover;
+      border-radius:24px;
+      border:1px solid var(--line);
+      display:block;
+    "
+  />
+
+  <img 
+    src="images/11.jpg"
+    alt="Render de packaging 2"
+    style="
+      width:100%;
+      height:930px;
+      object-fit:cover;
+      border-radius:24px;
+      border:1px solid var(--line);
+      display:block;
+    "
+  />
+
+</div>
+          </div>
+
+       
+
+         
+
+        </div>
+      </section>
+
+      <p class="footer-note">Creative Design · UX/UI · Branding · Motion · Packaging</p>
+    </div>
+  </main>
+</body>
+</html>
+
